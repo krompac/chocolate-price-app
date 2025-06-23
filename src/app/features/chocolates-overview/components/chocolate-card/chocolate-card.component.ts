@@ -1,11 +1,11 @@
 import { Component, computed, input } from '@angular/core';
-import { Price, Product } from '../../../../core/model/product.model';
+import { BasePriceModel, FullChocolateModel } from '../../../../core/model/chocolate.model';
 
-interface PriceStats {
+type PriceStats = {
   minPrice: string;
   avgPrice: string;
-  cheapestShop: Price;
-}
+  cheapestShop: BasePriceModel;
+};
 
 @Component({
   selector: 'app-chocolate-card',
@@ -14,18 +14,18 @@ interface PriceStats {
   styleUrl: './chocolate-card.component.less'
 })
 export class ChocolateCardComponent {
-  readonly chocolate = input.required<Product>();
+  readonly chocolate = input.required<FullChocolateModel>();
   readonly chocolateStats = computed(() => this.calculatePriceStats(this.chocolate()));
 
-  calculatePriceStats(chocolate: Product): PriceStats | undefined {
+  calculatePriceStats(chocolate: FullChocolateModel): PriceStats | undefined {
     if (chocolate.prices.length === 0) {
       return undefined;
     }
 
-    const pricesPerUnit = chocolate.prices.map((p) => (p.price / p.amount) * 100);
+    const pricesPerUnit = chocolate.prices.map((p) => p.pricePerUnit);
     const minPrice = Math.min(...pricesPerUnit);
     const avgPrice = pricesPerUnit.reduce((a, b) => a + b, 0) / pricesPerUnit.length;
-    const cheapestShop = chocolate.prices.find((p) => (p.price / p.amount) * 100 === minPrice) ?? chocolate.prices[0];
+    const cheapestShop = chocolate.prices.find((p) => p.pricePerUnit === minPrice) ?? chocolate.prices[0];
 
     return {
       minPrice: minPrice.toFixed(2),

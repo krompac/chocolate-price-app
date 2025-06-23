@@ -1,7 +1,7 @@
+import { BaseChocolateModel } from './core/model/chocolate.model';
 import { Pagination } from './core/model/pagination.model';
-import { Product } from './core/model/product.model';
 
-export const TEST_DATA: Pagination<Product> = {
+export const TEST_DATA: Pagination<BaseChocolateModel> = {
   pagination: {
     offset: 0,
     limit: 25,
