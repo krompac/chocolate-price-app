@@ -7,7 +7,7 @@ export interface Product {
   nutrition: Nutrition;
 }
 
-interface Price {
+export interface Price {
   price: number;
   shop: string;
   link: string;

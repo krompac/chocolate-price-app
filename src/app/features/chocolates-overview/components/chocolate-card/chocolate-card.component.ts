@@ -1,5 +1,11 @@
 import { Component, computed, input } from '@angular/core';
-import { Product } from '../../../../core/model/product.model';
+import { Price, Product } from '../../../../core/model/product.model';
+
+interface PriceStats {
+  minPrice: string;
+  avgPrice: string;
+  cheapestShop: Price;
+}
 
 @Component({
   selector: 'app-chocolate-card',
@@ -11,7 +17,11 @@ export class ChocolateCardComponent {
   readonly chocolate = input.required<Product>();
   readonly chocolateStats = computed(() => this.calculatePriceStats(this.chocolate()));
 
-  calculatePriceStats(chocolate: Product) {
+  calculatePriceStats(chocolate: Product): PriceStats | undefined {
+    if (chocolate.prices.length === 0) {
+      return undefined;
+    }
+
     const pricesPerUnit = chocolate.prices.map((p) => (p.price / p.amount) * 100);
     const minPrice = Math.min(...pricesPerUnit);
     const avgPrice = pricesPerUnit.reduce((a, b) => a + b, 0) / pricesPerUnit.length;

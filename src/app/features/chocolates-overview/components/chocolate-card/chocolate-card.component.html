@@ -7,19 +7,19 @@
     <div class="chocolate-brand">{{ chocoData.brand }}</div>
   </div>
 </div>
-<div class="price-info">
-  <div class="price-item">
-    <div class="price-label">Lowest Price</div>
-    <div class="price-value">{{ stats.minPrice }} {{ chocoData.currency }}/100g</div>
+@if (stats) {
+  <div class="price-info">
+    <div class="price-item">
+      <div class="price-label">Lowest Price</div>
+      <div class="price-value">{{ stats.minPrice }} {{ chocoData.currency }}/100g</div>
+    </div>
+    <div class="price-item">
+      <div class="price-label">Average Price</div>
+      <div class="price-value">{{ stats.avgPrice }} {{ chocoData.currency }}/100g</div>
+    </div>
   </div>
-  <div class="price-item">
-    <div class="price-label">Average Price</div>
-    <div class="price-value">{{ stats.avgPrice }} {{ chocoData.currency }}/100g</div>
-  </div>
-</div>
-@let cheapestShop = stats.cheapestShop;
-@if (cheapestShop) {
-  <a href="{{ cheapestShop.link }}" class="cheapest-shop" onclick="event.stopPropagation()">
-    Buy at {{ cheapestShop.shop }}
-  </a>
+  @let cheapestShop = stats.cheapestShop;
+  @if (cheapestShop) {
+    <a href="{{ cheapestShop.link }}" class="cheapest-shop"> Buy at {{ cheapestShop.shop }} </a>
+  }
 }
