@@ -9,7 +9,7 @@ import { ChocolateCardComponent } from './components/chocolate-card/chocolate-ca
   selector: 'app-chocolates-overview',
   imports: [ChocolateCardComponent, RouterLink],
   templateUrl: './chocolates-overview.component.html',
-  styleUrl: './chocolates-overview.component.css'
+  styleUrl: './chocolates-overview.component.less'
 })
 export class ChocolatesOverviewComponent {
   /* Dependency injections */
