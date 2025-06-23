@@ -1,1 +1,5 @@
-<p>chocolates-overview works!</p>
+<div class="chocolate-grid">
+  @for (chocolate of chocolates(); track chocolate.id) {
+    <app-chocolate-card [chocolate]="chocolate" [routerLink]="[chocolate.id]" />
+  }
+</div>

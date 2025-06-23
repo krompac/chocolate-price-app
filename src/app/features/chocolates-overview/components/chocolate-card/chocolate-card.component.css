@@ -1,0 +1,14 @@
+:host {
+  border-radius: 15px;
+  padding: 25px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.chocolate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  width: fit-content;
+}

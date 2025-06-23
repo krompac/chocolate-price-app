@@ -1,0 +1,25 @@
+@let chocoData = chocolate();
+@let stats = chocolateStats();
+
+<div class="chocolate-header">
+  <div>
+    <div class="chocolate-name">{{ chocoData.name }}</div>
+    <div class="chocolate-brand">{{ chocoData.brand }}</div>
+  </div>
+</div>
+<div class="price-info">
+  <div class="price-item">
+    <div class="price-label">Lowest Price</div>
+    <div class="price-value">{{ stats.minPrice }} {{ chocoData.currency }}/100g</div>
+  </div>
+  <div class="price-item">
+    <div class="price-label">Average Price</div>
+    <div class="price-value">{{ stats.avgPrice }} {{ chocoData.currency }}/100g</div>
+  </div>
+</div>
+@let cheapestShop = stats.cheapestShop;
+@if (cheapestShop) {
+  <a href="{{ cheapestShop.link }}" class="cheapest-shop" onclick="event.stopPropagation()">
+    Buy at {{ cheapestShop.shop }}
+  </a>
+}
