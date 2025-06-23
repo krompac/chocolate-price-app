@@ -1,7 +1,7 @@
 import { Pagination } from './core/model/pagination.model';
 import { Product } from './core/model/product.model';
 
-export const testData: Pagination<Product> = {
+export const TEST_DATA: Pagination<Product> = {
   pagination: {
     offset: 0,
     limit: 25,
