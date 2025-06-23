@@ -1,2 +1,26 @@
 <a class="back-btn" routerLink="/"> ← Back to Overview </a>
-<div class="detail-view"></div>
+<div class="detail-view">
+  <div class="detail-header">
+    <div class="detail-name">{{ chocolate.name }}</div>
+    <div class="detail-brand">{{ chocolate.brand }}</div>
+  </div>
+  <div class="detail-content">
+    <div class="prices-section">
+      <h3>All Available Prices</h3>
+      <div class="prices-list">
+        @for (price of chocolate.prices; track $index) {
+          <div class="price-entry">
+            <div class="price-details">
+              <div class="shop-name">{{ price.shop }}</div>
+              <div class="price-amount">
+                {{ price.amount }}{{ price.unit }} for {{ price.price }} {{ chocolate.currency }}
+              </div>
+            </div>
+            <div class="price-per-100g">{{ price.pricePerUnit }} {{ chocolate.currency }}/100g</div>
+            <a [href]="price.link" class="shop-link" target="_blank">Visit Shop</a>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
