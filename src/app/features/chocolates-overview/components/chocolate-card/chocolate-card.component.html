@@ -20,6 +20,6 @@
   </div>
   @let cheapestShop = stats.cheapestShop;
   @if (cheapestShop) {
-    <a href="{{ cheapestShop.link }}" class="cheapest-shop"> Buy at {{ cheapestShop.shop }} </a>
+    <a href="{{ cheapestShop.link }}" class="primary-btn" appStopPropagation> Buy at {{ cheapestShop.shop }} </a>
   }
 }
