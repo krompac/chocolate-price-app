@@ -1,0 +1,80 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .detail-view {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    .detail-header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid lightgray;
+
+      .detail-name {
+        font-size: 2.2rem;
+        color: #8b4513;
+        margin-bottom: 10px;
+      }
+
+      .detail-brand {
+        font-size: 1.3rem;
+        color: gray;
+      }
+    }
+
+    .prices-section {
+      h3 {
+        color: #8b4513;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .prices-list {
+        display: grid;
+        gap: 15px;
+
+        .price-entry {
+          border-radius: 12px;
+          padding: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: rgb(227, 227, 227);
+          }
+
+          .price-details {
+            display: flex;
+            flex-direction: column;
+
+            .shop-name {
+              font-weight: 700;
+              color: #8b4513;
+              font-size: 1.1rem;
+              margin-bottom: 5px;
+            }
+
+            .price-amount {
+              color: gray;
+              font-size: 0.9rem;
+            }
+          }
+
+          .price-per-100g {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #d2691e;
+          }
+        }
+      }
+    }
+  }
+}

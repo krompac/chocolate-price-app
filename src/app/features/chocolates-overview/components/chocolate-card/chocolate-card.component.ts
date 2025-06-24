@@ -1,15 +1,11 @@
 import { Component, computed, input } from '@angular/core';
-import { BasePriceModel, FullChocolateModel } from '../../../../core/model/chocolate.model';
-
-type PriceStats = {
-  minPrice: string;
-  avgPrice: string;
-  cheapestShop: BasePriceModel;
-};
+import { FullChocolateModel } from '../../../../core/model/chocolate.model';
+import { StopPropagationDirective } from '../../../../shared/directives/stop-propagation.directive';
+import { PriceStats } from '../../models/price-stats.model';
 
 @Component({
   selector: 'app-chocolate-card',
-  imports: [],
+  imports: [StopPropagationDirective],
   templateUrl: './chocolate-card.component.html',
   styleUrl: './chocolate-card.component.less'
 })

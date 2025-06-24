@@ -1,4 +1,4 @@
-<a class="back-btn" routerLink="/"> ← Back to Overview </a>
+<a class="secondary-btn" routerLink="/"> ← Back to Overview </a>
 <div class="detail-view">
   <div class="detail-header">
     <div class="detail-name">{{ chocolate.name }}</div>
@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="price-per-100g">{{ price.pricePerUnit }} {{ chocolate.currency }}/100g</div>
-            <a [href]="price.link" class="shop-link" target="_blank">Visit Shop</a>
+            <a [href]="price.link" class="primary-btn" target="_blank">Visit Shop</a>
           </div>
         }
       </div>

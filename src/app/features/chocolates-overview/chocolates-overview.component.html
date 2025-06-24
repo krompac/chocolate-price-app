@@ -1,5 +1,9 @@
 <div class="chocolate-grid">
-  @for (chocolate of chocolates.value(); track chocolate.id) {
-    <app-chocolate-card [chocolate]="chocolate" [routerLink]="[chocolate.id]" />
+  @if (chocolates.isLoading()) {
+    <div>Loading chocolates...</div>
+  } @else {
+    @for (chocolate of chocolates.value(); track chocolate.id) {
+      <app-chocolate-card [chocolate]="chocolate" [routerLink]="[chocolate.id]" />
+    }
   }
 </div>
