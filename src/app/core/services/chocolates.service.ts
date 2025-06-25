@@ -20,4 +20,11 @@ export class ChocolatesService {
       }))
     );
   }
+
+  updateChocolate(id: string, data: { name: string; brand: string }): Observable<boolean> {
+    return of().pipe(
+      delay(300),
+      map(() => true)
+    );
+  }
 }

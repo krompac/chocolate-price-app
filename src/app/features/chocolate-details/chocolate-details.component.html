@@ -1,33 +1,39 @@
 <a class="secondary-btn" routerLink="/"> ← Back to Overview </a>
-<div class="detail-view">
-  <div class="detail-header">
-    <div class="detail-name">{{ chocolate.name }}</div>
-    <div class="detail-brand">{{ chocolate.brand }}</div>
-  </div>
-  <div class="detail-content">
-    <div class="prices-section">
-      <h3>All Available Prices</h3>
-      <div class="prices-list">
-        @for (price of chocolate.prices; track $index) {
-          @let cheapest = price.pricePerUnit === cheapestPricePerUnit;
+@if (selectedChocolate(); as chocolate) {
+  <div class="detail-view">
+    <div class="detail-header">
+      <div class="detail-name">
+        {{ chocolate.name }}
+        <app-edit-icon class="edit" (click)="openDialog()" />
+      </div>
+      <div class="detail-brand">{{ chocolate.brand }}</div>
+    </div>
+    <div class="detail-content">
+      <div class="prices-section">
+        <h3>All Available Prices</h3>
+        <div class="prices-list">
+          @let cheapestPrice = cheapestPricePerUnit();
+          @for (price of chocolate.prices; track $index) {
+            @let cheapest = price.pricePerUnit === cheapestPrice;
 
-          <div class="price-entry">
-            <div class="price-details">
-              <div class="shop-name">
-                {{ price.shop }}
-                @if (cheapest) {
-                  <img src="assets/loss.png" alt="" class="cheapest-icon" />
-                }
+            <div class="price-entry">
+              <div class="price-details">
+                <div class="shop-name">
+                  {{ price.shop }}
+                  @if (cheapest) {
+                    <img src="assets/best-price.png" alt="" class="cheapest-icon" />
+                  }
+                </div>
+                <div class="price-amount">
+                  {{ price.amount }}{{ price.unit }} for {{ price.price }} {{ chocolate.currency }}
+                </div>
               </div>
-              <div class="price-amount">
-                {{ price.amount }}{{ price.unit }} for {{ price.price }} {{ chocolate.currency }}
-              </div>
+              <div class="price-per-100g">{{ price.pricePerUnit }} {{ chocolate.currency }}/100g</div>
+              <a [href]="price.link" class="primary-btn" target="_blank">Visit Shop</a>
             </div>
-            <div class="price-per-100g">{{ price.pricePerUnit }} {{ chocolate.currency }}/100g</div>
-            <a [href]="price.link" class="primary-btn" target="_blank">Visit Shop</a>
-          </div>
-        }
+          }
+        </div>
       </div>
     </div>
   </div>
-</div>
+}

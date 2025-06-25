@@ -1,0 +1,52 @@
+@import 'theme';
+
+:host {
+  width: 400px;
+  height: 400px;
+  background-color: @white-color;
+  border-radius: 20px;
+  padding: 20px;
+
+  h2 {
+    color: @primary-color;
+  }
+
+  &,
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  form {
+    flex-grow: 1;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+
+      color: @primary-color;
+    }
+
+    input {
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid;
+      width: 100%;
+
+      & [type='text'] {
+        font-size: 16px;
+      }
+
+      &:focus-within {
+        outline: @secondary-color;
+        border-color: @secondary-color;
+      }
+    }
+
+    .footer {
+      margin-top: auto;
+      text-align: end;
+    }
+  }
+}

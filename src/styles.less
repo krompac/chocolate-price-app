@@ -1,3 +1,5 @@
+@import '@angular/cdk/overlay-prebuilt.css';
+
 @import 'theme.less';
 
 * {
@@ -16,6 +18,8 @@
   display: inline-block;
   text-align: center;
   width: fit-content;
+  border: none;
+  cursor: pointer;
 }
 
 .secondary-btn {
@@ -28,4 +32,12 @@
   display: inline-block;
   text-align: center;
   width: fit-content;
+  border: none;
+  cursor: pointer;
+}
+
+.cdk-dialog-container {
+  &:focus-visible {
+    outline: none;
+  }
 }

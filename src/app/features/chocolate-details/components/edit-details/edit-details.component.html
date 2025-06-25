@@ -1,0 +1,15 @@
+<h2>Edit chocolate</h2>
+<form (submit)="updateSelected()">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" id="name" [(ngModel)]="name" [ngModelOptions]="{ standalone: true }" />
+  </div>
+  <div>
+    <label for="brand">Brand</label>
+    <input type="text" id="brand" [(ngModel)]="brand" [ngModelOptions]="{ standalone: true }" />
+  </div>
+
+  <div class="footer">
+    <button class="primary-btn" type="submit">Submit</button>
+  </div>
+</form>
