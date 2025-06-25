@@ -1,59 +1,58 @@
 # ChocolatePrice
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+Source code for ChocolatePrice overview application.
 
-## Development server
+## Installation
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+First run:
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Once the packages are installed run:
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Once the server is running, open your browser and navigate to `http://localhost:4200/`.
 
-To build the project run:
+## Improvements for the application
 
-```bash
-ng build
-```
+### State management
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- [ ] Implement Ngrx signal store to ensure that application will scale better with more data (https://ngrx.io/guide/signals/signal-store)
 
-## Running unit tests
+### Code quality
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- [ ] Add eslint to the project with angular-lint rules, to ensure better code quality.
 
-```bash
-ng test
-```
+### Search, pagination, filters
 
-## Running end-to-end tests
+- [ ] Implement search component
+- [ ] Implement pagination component (or add some package)
+- [ ] Filter by cholocate brand
+- [ ] On query changes (either search or pagination change) make api call to fetch filtered data -> use rxResource to handle this smoothly (or Ngrx store if implemented from before)
 
-For end-to-end (e2e) testing, run:
+### Optimization
 
-```bash
-ng e2e
-```
+- [ ] Add ChangeDetection.OnPush strategy to every component
+- [ ] Add to angular.json schematics that each new component generated has ChangeDetection.OnPush
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Styling and design
 
-## Additional Resources
+- [ ] Create a theme.less file and declare reusable less variables to store colors and other reusable properties throught the stylesheets
+- [ ] Support multiple themes
+- [ ] Add better loading data indicator
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Bonus tasks from the requirements
+
+- [ ] highlight cheapest price per 100g in the details view
+- [ ] name and brand editable in details view -> ensure that it will smoothly work with backend later on
+- [ ] display nutritional values via the pie chart for each chocolate
+
+### Error handling
+
+- [ ] add error handling for chocolates fetch
+- [ ] add error handling when user wants to navigate to chocolate details view of a non existent chocolate
