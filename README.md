@@ -22,7 +22,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ### State management
 
-- [ ] Implement Ngrx signal store to ensure that application will scale better with more data (https://ngrx.io/guide/signals/signal-store)
+- [x] Implement Ngrx signal store to ensure that application will scale better with more data (https://ngrx.io/guide/signals/signal-store)
 
 ### Code quality
 
@@ -37,22 +37,22 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ### Optimization
 
-- [ ] Add ChangeDetection.OnPush strategy to every component
-- [ ] Add to angular.json schematics that each new component generated has ChangeDetection.OnPush
+- [x] Add ChangeDetection.OnPush strategy to every component
+- [x] Add to angular.json schematics that each new component generated has ChangeDetection.OnPush
 
 ### Styling and design
 
-- [ ] Create a theme.less file and declare reusable less variables to store colors and other reusable properties throught the stylesheets
+- [x] Create a theme.less file and declare reusable less variables to store colors and other reusable properties throught the stylesheets
 - [ ] Support multiple themes
 - [ ] Add better loading data indicator
 
 ### Bonus tasks from the requirements
 
-- [ ] highlight cheapest price per 100g in the details view
-- [ ] name and brand editable in details view -> ensure that it will smoothly work with backend later on
-- [ ] display nutritional values via the pie chart for each chocolate
+- [x] highlight cheapest price per 100g in the details view
+- [x] name and brand editable in details view -> ensure that it will smoothly work with backend later on
+- [x] display nutritional values via the pie chart for each chocolate
 
 ### Error handling
 
 - [ ] add error handling for chocolates fetch
-- [ ] add error handling when user wants to navigate to chocolate details view of a non existent chocolate
+- [x] add error handling when user wants to navigate to chocolate details view of a non existent chocolate
