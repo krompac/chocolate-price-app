@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FullChocolateModel } from '../../core/model/chocolate.model';
 
@@ -6,7 +6,8 @@ import { FullChocolateModel } from '../../core/model/chocolate.model';
   selector: 'app-chocolate-details',
   imports: [RouterLink],
   templateUrl: './chocolate-details.component.html',
-  styleUrl: './chocolate-details.component.less'
+  styleUrl: './chocolate-details.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChocolateDetailsComponent {
   /* Dependency injections */

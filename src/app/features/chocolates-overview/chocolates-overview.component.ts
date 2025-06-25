@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { map } from 'rxjs';
@@ -9,7 +9,8 @@ import { ChocolateCardComponent } from './components/chocolate-card/chocolate-ca
   selector: 'app-chocolates-overview',
   imports: [ChocolateCardComponent, RouterLink],
   templateUrl: './chocolates-overview.component.html',
-  styleUrl: './chocolates-overview.component.less'
+  styleUrl: './chocolates-overview.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChocolatesOverviewComponent {
   /* Dependency injections */

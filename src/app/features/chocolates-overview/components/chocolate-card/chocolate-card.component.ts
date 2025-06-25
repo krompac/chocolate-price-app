@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { FullChocolateModel } from '../../../../core/model/chocolate.model';
 import { StopPropagationDirective } from '../../../../shared/directives/stop-propagation.directive';
 import { PriceStats } from '../../models/price-stats.model';
@@ -7,7 +7,8 @@ import { PriceStats } from '../../models/price-stats.model';
   selector: 'app-chocolate-card',
   imports: [StopPropagationDirective],
   templateUrl: './chocolate-card.component.html',
-  styleUrl: './chocolate-card.component.less'
+  styleUrl: './chocolate-card.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChocolateCardComponent {
   readonly chocolate = input.required<FullChocolateModel>();
