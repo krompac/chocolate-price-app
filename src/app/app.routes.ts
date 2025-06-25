@@ -1,6 +1,42 @@
 import { inject } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
-import { ChocolatesService } from './core/services/chocolates.service';
+import { toObservable } from '@angular/core/rxjs-interop';
+import {
+  ActivatedRouteSnapshot,
+  RedirectCommand,
+  ResolveFn,
+  Router,
+  RouterStateSnapshot,
+  Routes
+} from '@angular/router';
+import { filter, map } from 'rxjs';
+import { FullChocolateModel } from './core/model/chocolate.model';
+import { ChocolateStore } from './core/store/chocolate.store';
+
+export const chocolateResolver: ResolveFn<FullChocolateModel | undefined> = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+) => {
+  const id = route.paramMap.get('id')!;
+  const router = inject(Router);
+  const chocolateStore = inject(ChocolateStore);
+
+  return toObservable(chocolateStore.isLoading).pipe(
+    filter((loading) => !loading),
+    map(() => {
+      const result = chocolateStore.getChocolateById(id);
+
+      if (!result) {
+        // TODO: add toastr like error to the user
+        console.error('Chocolate not found!');
+
+        const rootPath = router.parseUrl('/');
+        return new RedirectCommand(rootPath);
+      }
+
+      return result;
+    })
+  );
+};
 
 export const routes: Routes = [
   {
@@ -17,12 +53,7 @@ export const routes: Routes = [
         (component) => component.ChocolateDetailsComponent
       ),
     resolve: {
-      chocolate: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
-        const chocolatesService = inject(ChocolatesService);
-        const id = route.paramMap.get('id')!;
-
-        return chocolatesService.getChocolateById(id);
-      }
+      chocolate: chocolateResolver
     }
   }
 ];

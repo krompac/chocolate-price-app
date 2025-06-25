@@ -7,7 +7,7 @@ Source code for ChocolatePrice overview application.
 First run:
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 Once the packages are installed run:
