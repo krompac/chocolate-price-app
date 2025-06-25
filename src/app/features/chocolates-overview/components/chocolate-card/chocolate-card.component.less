@@ -1,8 +1,10 @@
+@import 'theme';
+
 :host {
-  background: rgba(255, 255, 255, 0.95);
+  background: @light-background-color;
   border-radius: 15px;
   padding: 25px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: @light-box-shadow;
   transition: all 0.3s ease;
   cursor: pointer;
 
@@ -23,12 +25,12 @@
     .chocolate-name {
       font-size: 1.4rem;
       font-weight: 700;
-      color: #8b4513;
+      color: @primary-color;
       margin-bottom: 5px;
     }
 
     .chocolate-brand {
-      color: gray;
+      color: @gray-color;
       font-size: 1.1rem;
       font-weight: 500;
     }
@@ -46,14 +48,14 @@
 
       .price-label {
         font-size: 0.9rem;
-        color: gray;
+        color: @gray-color;
         margin-bottom: 5px;
       }
 
       .price-value {
         font-size: 1.2rem;
         font-weight: 700;
-        color: #8b4513;
+        color: @secondary-color;
       }
     }
   }

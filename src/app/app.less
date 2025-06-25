@@ -1,12 +1,14 @@
+@import 'theme';
+
 :host {
   display: block;
   padding: 20px;
-  background: #d2691e;
+  background: @secondary-color;
   height: fit-content;
   min-height: 100vh;
 
   header {
-    background: rgba(255, 255, 255, 0.95);
+    background: @light-background-color;
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 30px;
@@ -15,7 +17,7 @@
 
     h1 {
       position: relative;
-      color: #8b4513;
+      color: @primary-color;
       font-size: 2.5rem;
       margin-bottom: 10px;
       font-weight: 700;
@@ -30,7 +32,7 @@
     }
 
     .subtitle {
-      color: gray;
+      color: @gray-color;
       font-size: 1.1rem;
     }
   }
