@@ -4,10 +4,11 @@ import { RouterLink } from '@angular/router';
 import { ChocolateStore } from '../../core/store/chocolate.store';
 import { EditDetails } from './components/edit-details/edit-details.component';
 import { EditIcon } from './components/edit-icon/edit-icon.component';
+import { NutritionBreakdown } from './components/nutrition-breakdown/nutrition-breakdown.component';
 
 @Component({
   selector: 'app-chocolate-details',
-  imports: [RouterLink, EditIcon],
+  imports: [RouterLink, EditIcon, NutritionBreakdown],
   templateUrl: './chocolate-details.component.html',
   styleUrl: './chocolate-details.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush
