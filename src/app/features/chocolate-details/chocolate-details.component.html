@@ -9,9 +9,16 @@
       <h3>All Available Prices</h3>
       <div class="prices-list">
         @for (price of chocolate.prices; track $index) {
+          @let cheapest = price.pricePerUnit === cheapestPricePerUnit;
+
           <div class="price-entry">
             <div class="price-details">
-              <div class="shop-name">{{ price.shop }}</div>
+              <div class="shop-name">
+                {{ price.shop }}
+                @if (cheapest) {
+                  <img src="assets/loss.png" alt="" class="cheapest-icon" />
+                }
+              </div>
               <div class="price-amount">
                 {{ price.amount }}{{ price.unit }} for {{ price.price }} {{ chocolate.currency }}
               </div>

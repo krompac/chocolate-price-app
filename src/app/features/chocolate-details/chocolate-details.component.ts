@@ -14,4 +14,5 @@ export class ChocolateDetailsComponent {
   private readonly activatedRoute = inject(ActivatedRoute);
 
   readonly chocolate = this.activatedRoute.snapshot.data['chocolate'] as FullChocolateModel;
+  readonly cheapestPricePerUnit = Math.min(...this.chocolate.prices.map((price) => price.pricePerUnit));
 }
