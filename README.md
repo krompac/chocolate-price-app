@@ -54,5 +54,5 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ### Error handling
 
-- [ ] add error handling for chocolates fetch
+- [x] add error handling for chocolates fetch
 - [x] add error handling when user wants to navigate to chocolate details view of a non existent chocolate

@@ -1,4 +1,5 @@
 @import '@angular/cdk/overlay-prebuilt.css';
+@import 'toastify-js/src/toastify.css';
 
 @import 'theme.less';
 
@@ -40,4 +41,8 @@
   &:focus-visible {
     outline: none;
   }
+}
+
+.toastify.error {
+  background: @red-color;
 }

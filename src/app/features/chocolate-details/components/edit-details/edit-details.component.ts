@@ -2,6 +2,7 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { ChangeDetectionStrategy, Component, inject, linkedSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChocolateStore } from '../../../../core/store/chocolate.store';
+import { NotificationService } from '../../../../shared/services/notification.service';
 
 @Component({
   selector: 'app-edit-details',
@@ -14,6 +15,7 @@ export class EditDetails {
   /* Dependency injections */
   private readonly dialog = inject(DialogRef);
   private readonly store = inject(ChocolateStore);
+  private readonly notificationService = inject(NotificationService);
 
   readonly selectedChocolate = this.store.selectedChocolate;
 
@@ -26,10 +28,12 @@ export class EditDetails {
     const name = checkValue(this.name());
     const brand = checkValue(this.brand());
 
-    if (name && brand) {
-      this.store.updateSelectedChocolate({ name, brand });
+    if (!name || !brand) {
+      this.notificationService.showError('Please enter non empty fields.');
+      return;
     }
 
+    this.store.updateSelectedChocolate({ name, brand });
     this.dialog.close();
   }
 }
